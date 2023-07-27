@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Test Event</title>
+</head>
+<body>
+  <button id="sendTestEventButton">Send Test Event</button>
+
+  <script>
+    document.getElementById("sendTestEventButton").addEventListener("click", function() {
+      const accessToken = "EAAJT0IZCxLsABOx90t71rhO6QZCe7leyygMD0Y6ua7o4bQKpSuGiZCA6Y4ASEfYGVenWavsBxCNJ04DtwMRrb6hhvpMaZBhNRmYm8Qo3dFFrs8e1WCQohQjG4M5uf3wg921AzF1XVZAxoZBG3fPsmCHtI1CXzKzQx1y4Vsv3qGZAeieLmGA4GriDZAK0ymlG1ENQbZAV9A5nnjA6XItEj9ZBZCbE0oeRwZDZD"; // Replace with your access token
+      const pixelID = "1300740743881123"; // Replace with your Pixel ID
+      const testEventCode = "TEST29466"; // Replace with your test event code
+      const eventName = "PURCHASE"; // Change this to the desired event name
+
+      const eventData = {
+        event_name: eventName,
+        event_time: Math.floor(Date.now() / 1000),
+        user_data: { email: "test@example.com" }, // Replace with the user's email (optional)
+        custom_data: { key: "value" } // Replace with custom data if needed (optional)
+      };
+
+      fetch(`https://graph.facebook.com/v17.0/${pixelID}/events?access_token=${accessToken}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "testEventCode": testEventCode
+        },
+        body: JSON.stringify({ data: [eventData] })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Test event sent successfully:", data);
+        // Handle the response as needed
+      })
+      .catch(error => {
+        console.error("Error sending test event:", error);
+        // Handle errors
+      });
+    });
+  </script>
+</body>
+</html>
