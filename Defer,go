@@ -1,0 +1,10 @@
+//Go provides the defer keyword to schedule a function call to be executed at the end of the current function, regardless of whether an error occurred or not. This is often used for cleanup or resource management.
+package main
+
+import "fmt"
+
+func main() {
+    defer fmt.Println("This will be executed last.")
+    fmt.Println("This will be executed first.")
+    panic("Something went wrong!") // This will trigger a panic
+}
