@@ -1,4 +1,4 @@
-# GoLangWizardry
+# LEARNING GO TO JOIN MABLE.AI
 
 ![1_CdjOgfolLt_GNJYBzI-1QQ](https://github.com/TABREZ-96/GoLangWizardry/assets/114156392/8819dca9-6341-4c64-827a-b329f86e86b9)
 
